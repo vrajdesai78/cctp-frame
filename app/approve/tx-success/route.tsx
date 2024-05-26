@@ -15,10 +15,6 @@ const frames = createFrames({
 });
 
 const handleRequest = frames(async (ctx) => {
-  const searchParams = new URL(ctx.url);
-  const source = searchParams.searchParams.get("source");
-  const target = searchParams.searchParams.get("target");
-
   return {
     image: (
       <div
@@ -28,27 +24,21 @@ const handleRequest = frames(async (ctx) => {
             "radial-gradient(circle at 85.4% 50.8%, rgb(14, 72, 222) 0%, rgb(3, 22, 65) 74.2%)",
         }}
       >
-        <span tw='text-6xl font-bold'>Bridge USDC</span>
-        <span tw='mt-4 text-3xl font-medium'>Powered by Wormhole</span>
+        <span tw='text-5xl font-bold text-slate-200'>
+          Approved Successfully
+        </span>
       </div>
     ),
     buttons: [
       <Button
         action='tx'
-        target={`${process.env.HOST_URL}/bridge/tx?source=${source}&target=${target}`}
-        post_url={`${process.env.HOST_URL}/bridge/tx-success?source=${source}&target=${target}`}
+        target={`${process.env.HOST_URL}/bridge/tx`}
+        post_url={`${process.env.HOST_URL}/bridge/tx-success`}
       >
         Bridge USDC
       </Button>,
-      <Button
-        action='tx'
-        target={`${process.env.HOST_URL}/approve/tx?source=${source}&target=${target}`}
-        post_url={`${process.env.HOST_URL}/approve/tx-success?source=${source}&target=${target}`}
-      >
-        Approve USDC
-      </Button>,
     ],
-    textInput: "Enter amount in USDC",
+    input: "Enter amount in USDC",
   };
 });
 
