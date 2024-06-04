@@ -2,8 +2,7 @@ import { USDCABI } from "@/utils/abi";
 import { Contract, USDC, viemChains } from "@/utils/constants";
 import { TransactionTargetResponse, getFrameMessage } from "frames.js";
 import { NextRequest, NextResponse } from "next/server";
-import { Abi, Chain, encodeFunctionData, parseUnits } from "viem";
-import { base, optimism, avalanche, arbitrum } from "viem/chains";
+import { Abi, encodeFunctionData, parseUnits } from "viem";
 
 export async function POST(
   req: NextRequest
