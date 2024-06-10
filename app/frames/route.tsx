@@ -32,7 +32,7 @@ const handleRequest = frames(async (ctx) => {
       <Button
         action='tx'
         target={`${process.env.HOST_URL}/approve/tx?source=${source}&target=${target}`}
-        post_url={`${process.env.HOST_URL}/approve/tx-success?source=${source}&target=${target}`}
+        post_url={`${process.env.HOST_URL}/frames?source=${source}&target=${target}`}
       >
         Approve USDC
       </Button>,
