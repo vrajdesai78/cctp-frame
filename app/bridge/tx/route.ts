@@ -36,8 +36,6 @@ export async function POST(
 
   const amt = parseUnits(frameMessage.inputText?.toString() ?? "1", 6);
 
-  console.log("amt", amt);
-
   const publicClient = createPublicClient({
     chain: chain,
     transport: http(),
@@ -50,8 +48,6 @@ export async function POST(
   });
 
   const cost = await contract.read.quoteCrossChainDeposit([targetChain]);
-
-  console.log("cost", cost);
 
   const calldata = encodeFunctionData({
     abi: bridgeABI,

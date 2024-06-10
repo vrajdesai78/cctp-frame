@@ -15,19 +15,24 @@ const frames = createFrames({
 });
 
 const handleRequest = frames(async (ctx) => {
+  const searchParams = new URL(ctx.url);
+  const source = searchParams.searchParams.get("source");
+  const target = searchParams.searchParams.get("target");
+
   return {
-    image: (
-      <div tw='flex h-full w-full items-center justify-center'>
-        <span tw='text-2xl'>Approved Successfully</span>
-      </div>
-    ),
+    image: "https://imgur.com/uZKMdF3.gif",
     buttons: [
       <Button
-        action='tx'
-        target={`${process.env.HOST_URL}/bridge/tx`}
-        post_url={`${process.env.HOST_URL}/bridge/tx-success`}
+        action='post'
+        target={`${process.env.HOST_URL}/frames?source=${source}&target=${target}`}
       >
-        Bridge USDC
+        Bridge Again
+      </Button>,
+      <Button
+        action='link'
+        target={`https://wormholescan.io/#/tx/${ctx.message?.transactionId}`}
+      >
+        View Transaction
       </Button>,
     ],
     input: "Enter amount in USDC",

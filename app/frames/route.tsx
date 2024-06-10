@@ -20,18 +20,7 @@ const handleRequest = frames(async (ctx) => {
   const target = searchParams.searchParams.get("target");
 
   return {
-    image: (
-      <div
-        tw='flex flex-col h-full w-full items-center justify-center text-slate-200'
-        style={{
-          background:
-            "radial-gradient(circle at 85.4% 50.8%, rgb(14, 72, 222) 0%, rgb(3, 22, 65) 74.2%)",
-        }}
-      >
-        <span tw='text-6xl font-bold'>Bridge USDC</span>
-        <span tw='mt-4 text-3xl font-medium'>Powered by Wormhole</span>
-      </div>
-    ),
+    image: "https://imgur.com/6V1bie1.png",
     buttons: [
       <Button
         action='tx'
